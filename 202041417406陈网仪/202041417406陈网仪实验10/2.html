@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 200px;
+            background-color: white;
+            border: 1px red solid;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <script>
+        var timer;//设置一个定时器
+        var box1 = document.getElementById("box1");
+        //设置定时器
+        timer = setInterval(function () {
+            //生成0-255的三个随机数字
+            var x1 = Math.random() * 255;
+            var x2 = Math.random() * 255;
+            var x3 = Math.random() * 255;
+            box1.style.backgroundColor = "rgb(" + x1 + "," + x2 + "," + x3 + ")";
+            //方形显示当前时间hh：mm：ss
+            var box2 = document.getElementById("box2");
+            var date = new Date();
+            var hh = date.getHours();
+            var mm = date.getMinutes();
+            var ss = date.getSeconds();
+            box2.innerHTML = hh + ":" + mm + ":" + ss;
+        }, 1000);
+    </script>
+</body>
+
+</html>

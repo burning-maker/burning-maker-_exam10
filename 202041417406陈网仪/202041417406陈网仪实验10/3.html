@@ -1,0 +1,65 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Js(DOM)动态添加节点和事件</title>
+    <script type="text/javascript">
+        function addEl() {
+            //找到要添加节点的父节点(table)
+            var tb = document.getElementById("tb");
+            //创建tbody节点，表格中必须有tbody才能添加，直接添加tr不成功
+            var tbody = document.createElement("tbody");
+            //创建tr节点
+            var tr = document.createElement("tr");
+            //创建td节点
+            var td = document.createElement("td");
+            //添加一个文本框节点，设置id和type属性
+            var newTp = document.createElement("input");
+            newTp.id = "text1";
+            newTp.type = "text";
+            //添加一个按钮
+            var newEl = document.createElement("input");
+            newEl.type = 'button';
+            newEl.value = "button";
+            newEl.name = "button1";
+            //添加onclick事件,和事件执行的函数
+            newEl.onclick = function dofun() {
+                document.getElementById("txt").value += newTp.value;
+            }
+            //把2个节点添加到td当中
+            td.appendChild(newTp)
+            td.appendChild(newEl);
+            //把td添加到tr中
+            tr.appendChild(td);
+            //把tr添加到td中
+            tbody.appendChild(tr);
+            //把td添加到table中
+            tb.appendChild(tbody);
+        }
+    </script>
+    </script>
+</head>
+
+<body>
+    <table id="tb">
+        <tr>
+            <td>
+                请输入姓名，学号：
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <input type="button" value="添加" onclick="addEl()" />
+            </td>
+            <td>
+                <input type="text" id="txt" />
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
